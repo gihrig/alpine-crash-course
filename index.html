@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -22,8 +23,8 @@
       <label>
         <span></span>Username:
         <input
-          x-model="username" 
-          type="text" 
+          x-model="username"
+          type="text"
           maxlength="15">
       </label>
 
@@ -65,11 +66,11 @@
       <label>Belt Color:
         <select x-model="belt">
           <option value="">Select a belt</option>
-          <option value="black">Black</option>
-          <option value="white">White</option>
-          <option value="red">Red</option>
-          <option value="orange">Orange</option>
-          <option value="brown">Brown</option>
+          <!-- Here index is optional -->
+          <!-- Note that x-for and x-if must contain a single root element -->
+          <template x-for="(choice, index) in beltChoices">
+            <option :value="choice" x-text="(index + 1) + ': ' + choice" :key="choice"></option>
+          </template>
         </select>
       </label>
 
