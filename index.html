@@ -28,6 +28,8 @@
           maxlength="15">
       </label>
 
+      <!-- x-if adds and removes an element from the DOM based on the boolean value -->
+      <!-- x-if requires a <template> tag -->
       <template x-if="errors.username">
         <p class="error" x-text="errors.username"></p>
       </template>
@@ -105,6 +107,17 @@
 
     <!-- submit button -->
     <button type="submit">Submit</button>
+
+    <!-- x-show leaves the element in the DOM hidden (display none) -->
+    <!-- x-cloak prevents a flash of unstyled content before x-show hides the modal -->
+    <div class="overlay" x-show="success" x-cloak>
+      <div class="modal">
+        <h2>Thank you!</h2>
+        <button type="button" @click="success = false">Close</button>
+      </div>
+
+    </div>
+
   </form>
 
 </body>
